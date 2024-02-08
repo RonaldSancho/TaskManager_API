@@ -1,5 +1,5 @@
 import sql from "mssql"
-import config from "./config.js";
+import config from "../config.js";
 
 const dbSettings = {
     user: config.dbUser,
@@ -9,8 +9,8 @@ const dbSettings = {
     options: {
         encrypt: true, 
         trustServerCertificate: true
-    }
-}
+    },
+};
 
 export async function getConnection(){
     try{
@@ -18,8 +18,9 @@ export async function getConnection(){
         return pool;
     }
     catch(error){
-        console.error(error)
+        console.error(error);
     }
 }
 
 export {sql};
+getConnection();
